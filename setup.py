@@ -8,7 +8,8 @@ root_dir = os.path.dirname(__file__)
 if root_dir:
     os.chdir(root_dir)
 
-for dirpath, dirnames, filenames in os.walk('presentation'):
+
+for dirpath, dirnames, filenames in os.walk('mwi'):
     # Ignore dirnames that start with '.'
     for i, dirname in enumerate(dirnames):
         if dirname.startswith('.'): del dirnames[i]
@@ -17,22 +18,17 @@ for dirpath, dirnames, filenames in os.walk('presentation'):
         if os.path.altsep:
             pkg = pkg.replace(os.path.altsep, '.')
         packages.append(pkg)
-    elif filenames:
-        prefix = dirpath[13:] # Strip "registration/" or "registration\"
-        for f in filenames:
-            data_files.append(os.path.join(prefix, f))
 
-
-setup(name='tregringos-presentation',
-      version='0.1',
-      description='UI extensions for django',
+setup(name='mwi-django-ui',
+      version='0.14',
+      description='UI extensions for django by MeWantIt.com',
       author='',
       author_email='',
       url='',
       download_url='',
-      package_dir={'presentation': 'presentation'},
+      package_dir={'mwi': 'mwi'},
       packages=packages,
-      package_data={'presentation': data_files},
+      package_data={'mwi': data_files},
       classifiers=['Development Status :: 5 - Production/Stable',
                    'Environment :: Web Environment',
                    'Framework :: Django',

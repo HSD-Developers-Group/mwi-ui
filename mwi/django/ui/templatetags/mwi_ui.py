@@ -13,7 +13,7 @@ def box(parser, token):
 	bits = re.findall(r'"[^"]+"|\b[^"]+\b[^"]', token.contents) # supports spaces in quotation marks eg. "Hello world" 
     
 	if len(bits) < 2:
-		raise template.TemplateSyntaxError("'%s, %s' tag takes atleast one arguments" % (bits[0]))
+		raise template.TemplateSyntaxError("'%s, %s' tag takes at least one arguments" % (bits[0]))
     
 	nodelist = parser.parse(('title', 'endbox'))
 	token = parser.next_token()
